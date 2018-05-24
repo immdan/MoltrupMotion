@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoltrupMotionClassLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{BB4BF17B-00C7-4476-9905-B7EDEF58C13F}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{BB4BF17B-00C7-4476-9905-B7EDEF58C13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB4BF17B-00C7-4476-9905-B7EDEF58C13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB4BF17B-00C7-4476-9905-B7EDEF58C13F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7201076A-ED16-41D1-BA7E-32C71BC2BCF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FakturaNummer">
+          <Key>
+            <PropertyRef Name="faktura_id" />
+          </Key>
+          <Property Name="faktura_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medlems_id" Type="int" />
+          <Property Name="kontigent_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Kontigent">
+          <Key>
+            <PropertyRef Name="kontigent_id" />
+          </Key>
+          <Property Name="kontigent_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kontigent_pris" Type="int" />
+        </EntityType>
+        <EntityType Name="MedlemKonto">
+          <Key>
+            <PropertyRef Name="medlems_id" />
+          </Key>
+          <Property Name="medlems_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medlems_fornavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="medlems_efternavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="medlems_foedselsdag" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="medlems_adress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="zipcode_zipcode" Type="int" />
+          <Property Name="medlems_telefon" Type="int" />
+          <Property Name="medlems_mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="betalt" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostNummer">
+          <Key>
+            <PropertyRef Name="zipcode_zipcode" />
+          </Key>
+          <Property Name="zipcode_zipcode" Type="int" Nullable="false" />
+          <Property Name="zipcode_city" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <Association Name="FK__FakturaNu__konti__2C3393D0">
+          <End Role="Kontigent" Type="Self.Kontigent" Multiplicity="0..1" />
+          <End Role="FakturaNummer" Type="Self.FakturaNummer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontigent">
+              <PropertyRef Name="kontigent_id" />
+            </Principal>
+            <Dependent Role="FakturaNummer">
+              <PropertyRef Name="kontigent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FakturaNu__medle__2B3F6F97">
+          <End Role="MedlemKonto" Type="Self.MedlemKonto" Multiplicity="0..1" />
+          <End Role="FakturaNummer" Type="Self.FakturaNummer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedlemKonto">
+              <PropertyRef Name="medlems_id" />
+            </Principal>
+            <Dependent Role="FakturaNummer">
+              <PropertyRef Name="medlems_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MedlemKon__zipco__25869641">
+          <End Role="PostNummer" Type="Self.PostNummer" Multiplicity="0..1" />
+          <End Role="MedlemKonto" Type="Self.MedlemKonto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostNummer">
+              <PropertyRef Name="zipcode_zipcode" />
+            </Principal>
+            <Dependent Role="MedlemKonto">
+              <PropertyRef Name="zipcode_zipcode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spBetalt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="betaltID" Type="int" Mode="In" />
+          <Parameter Name="betalt" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="spOpretMedlem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fornavn" Type="nvarchar" Mode="In" />
+          <Parameter Name="efternavn" Type="nvarchar" Mode="In" />
+          <Parameter Name="foedselsdag" Type="nvarchar" Mode="In" />
+          <Parameter Name="adress" Type="nvarchar" Mode="In" />
+          <Parameter Name="postnummer" Type="int" Mode="In" />
+          <Parameter Name="telefon" Type="int" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spRetMedlem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="medlemID" Type="int" Mode="In" />
+          <Parameter Name="fornavn" Type="nvarchar" Mode="In" />
+          <Parameter Name="efternavn" Type="nvarchar" Mode="In" />
+          <Parameter Name="adress" Type="nvarchar" Mode="In" />
+          <Parameter Name="postnummer" Type="int" Mode="In" />
+          <Parameter Name="telefon" Type="int" Mode="In" />
+          <Parameter Name="mail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spSletMedlem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="medlemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spSoegMedlem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="soegmedlem" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="spViewBetalt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spViewFaktura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spViewKonto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="StoreContainer">
+          <EntitySet Name="FakturaNummer" EntityType="Self.FakturaNummer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kontigent" EntityType="Self.Kontigent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedlemKonto" EntityType="Self.MedlemKonto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostNummer" EntityType="Self.PostNummer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FakturaNu__konti__2C3393D0" Association="Self.FK__FakturaNu__konti__2C3393D0">
+            <End Role="Kontigent" EntitySet="Kontigent" />
+            <End Role="FakturaNummer" EntitySet="FakturaNummer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FakturaNu__medle__2B3F6F97" Association="Self.FK__FakturaNu__medle__2B3F6F97">
+            <End Role="MedlemKonto" EntitySet="MedlemKonto" />
+            <End Role="FakturaNummer" EntitySet="FakturaNummer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MedlemKon__zipco__25869641" Association="Self.FK__MedlemKon__zipco__25869641">
+            <End Role="PostNummer" EntitySet="PostNummer" />
+            <End Role="MedlemKonto" EntitySet="MedlemKonto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FakturaNummer" EntityType="Model1.FakturaNummer" />
+          <EntitySet Name="Kontigent" EntityType="Model1.Kontigent" />
+          <EntitySet Name="MedlemKonto" EntityType="Model1.MedlemKonto" />
+          <EntitySet Name="PostNummer" EntityType="Model1.PostNummer" />
+          <AssociationSet Name="FK__FakturaNu__konti__2C3393D0" Association="Model1.FK__FakturaNu__konti__2C3393D0">
+            <End Role="Kontigent" EntitySet="Kontigent" />
+            <End Role="FakturaNummer" EntitySet="FakturaNummer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FakturaNu__medle__2B3F6F97" Association="Model1.FK__FakturaNu__medle__2B3F6F97">
+            <End Role="MedlemKonto" EntitySet="MedlemKonto" />
+            <End Role="FakturaNummer" EntitySet="FakturaNummer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MedlemKon__zipco__25869641" Association="Model1.FK__MedlemKon__zipco__25869641">
+            <End Role="PostNummer" EntitySet="PostNummer" />
+            <End Role="MedlemKonto" EntitySet="MedlemKonto" />
+          </AssociationSet>
+          <FunctionImport Name="spBetalt">
+            <Parameter Name="betaltID" Mode="In" Type="Int32" />
+            <Parameter Name="betalt" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="spOpretMedlem">
+            <Parameter Name="fornavn" Mode="In" Type="String" />
+            <Parameter Name="efternavn" Mode="In" Type="String" />
+            <Parameter Name="foedselsdag" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="postnummer" Mode="In" Type="Int32" />
+            <Parameter Name="telefon" Mode="In" Type="Int32" />
+            <Parameter Name="mail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spRetMedlem">
+            <Parameter Name="medlemID" Mode="In" Type="Int32" />
+            <Parameter Name="fornavn" Mode="In" Type="String" />
+            <Parameter Name="efternavn" Mode="In" Type="String" />
+            <Parameter Name="adress" Mode="In" Type="String" />
+            <Parameter Name="postnummer" Mode="In" Type="Int32" />
+            <Parameter Name="telefon" Mode="In" Type="Int32" />
+            <Parameter Name="mail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spSletMedlem">
+          <Parameter Name="medlemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spSoegMedlem" ReturnType="Collection(Model1.spSoegMedlem_Result)">
+          <Parameter Name="soegmedlem" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spViewBetalt" ReturnType="Collection(Model1.spViewBetalt_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spViewFaktura" ReturnType="Collection(Model1.spViewFaktura_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spViewKonto" ReturnType="Collection(Model1.spViewKonto_Result)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="FakturaNummer">
+          <Key>
+            <PropertyRef Name="faktura_id" />
+          </Key>
+          <Property Name="faktura_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medlems_id" Type="Int32" />
+          <Property Name="kontigent_id" Type="Int32" />
+          <NavigationProperty Name="Kontigent" Relationship="Model1.FK__FakturaNu__konti__2C3393D0" FromRole="FakturaNummer" ToRole="Kontigent" />
+          <NavigationProperty Name="MedlemKonto" Relationship="Model1.FK__FakturaNu__medle__2B3F6F97" FromRole="FakturaNummer" ToRole="MedlemKonto" />
+        </EntityType>
+        <EntityType Name="Kontigent">
+          <Key>
+            <PropertyRef Name="kontigent_id" />
+          </Key>
+          <Property Name="kontigent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kontigent_pris" Type="Int32" />
+          <NavigationProperty Name="FakturaNummer" Relationship="Model1.FK__FakturaNu__konti__2C3393D0" FromRole="Kontigent" ToRole="FakturaNummer" />
+        </EntityType>
+        <EntityType Name="MedlemKonto">
+          <Key>
+            <PropertyRef Name="medlems_id" />
+          </Key>
+          <Property Name="medlems_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medlems_fornavn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="medlems_efternavn" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="medlems_foedselsdag" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="medlems_adress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="zipcode_zipcode" Type="Int32" />
+          <Property Name="medlems_telefon" Type="Int32" />
+          <Property Name="medlems_mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="betalt" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="FakturaNummer" Relationship="Model1.FK__FakturaNu__medle__2B3F6F97" FromRole="MedlemKonto" ToRole="FakturaNummer" />
+          <NavigationProperty Name="PostNummer" Relationship="Model1.FK__MedlemKon__zipco__25869641" FromRole="MedlemKonto" ToRole="PostNummer" />
+        </EntityType>
+        <EntityType Name="PostNummer">
+          <Key>
+            <PropertyRef Name="zipcode_zipcode" />
+          </Key>
+          <Property Name="zipcode_zipcode" Type="Int32" Nullable="false" />
+          <Property Name="zipcode_city" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MedlemKonto" Relationship="Model1.FK__MedlemKon__zipco__25869641" FromRole="PostNummer" ToRole="MedlemKonto" />
+        </EntityType>
+        <Association Name="FK__FakturaNu__konti__2C3393D0">
+          <End Type="Model1.Kontigent" Role="Kontigent" Multiplicity="0..1" />
+          <End Type="Model1.FakturaNummer" Role="FakturaNummer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kontigent">
+              <PropertyRef Name="kontigent_id" />
+            </Principal>
+            <Dependent Role="FakturaNummer">
+              <PropertyRef Name="kontigent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FakturaNu__medle__2B3F6F97">
+          <End Type="Model1.MedlemKonto" Role="MedlemKonto" Multiplicity="0..1" />
+          <End Type="Model1.FakturaNummer" Role="FakturaNummer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedlemKonto">
+              <PropertyRef Name="medlems_id" />
+            </Principal>
+            <Dependent Role="FakturaNummer">
+              <PropertyRef Name="medlems_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MedlemKon__zipco__25869641">
+          <End Type="Model1.PostNummer" Role="PostNummer" Multiplicity="0..1" />
+          <End Type="Model1.MedlemKonto" Role="MedlemKonto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostNummer">
+              <PropertyRef Name="zipcode_zipcode" />
+            </Principal>
+            <Dependent Role="MedlemKonto">
+              <PropertyRef Name="zipcode_zipcode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="spSoegMedlem_Result">
+          <Property Type="Int32" Name="medlems_id" Nullable="false" />
+          <Property Type="String" Name="medlems_fornavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_efternavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_foedselsdag" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="medlems_adress" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="zipcode_zipcode" Nullable="true" />
+          <Property Type="Int32" Name="medlems_telefon" Nullable="true" />
+          <Property Type="String" Name="medlems_mail" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="betalt" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spViewBetalt_Result">
+          <Property Type="Int32" Name="medlems_id" Nullable="false" />
+          <Property Type="String" Name="medlems_fornavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_efternavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_foedselsdag" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="medlems_adress" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="zipcode_zipcode" Nullable="true" />
+          <Property Type="Int32" Name="medlems_telefon" Nullable="true" />
+          <Property Type="String" Name="medlems_mail" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="betalt" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spViewFaktura_Result">
+          <Property Type="Int32" Name="faktura_id" Nullable="false" />
+          <Property Type="Int32" Name="medlems_id" Nullable="true" />
+          <Property Type="Int32" Name="kontigent_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="spViewKonto_Result">
+          <Property Type="Int32" Name="medlems_id" Nullable="false" />
+          <Property Type="String" Name="medlems_fornavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_efternavn" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="medlems_foedselsdag" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="medlems_adress" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="zipcode_zipcode" Nullable="true" />
+          <Property Type="Int32" Name="medlems_telefon" Nullable="true" />
+          <Property Type="String" Name="medlems_mail" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="betalt" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StoreContainer" CdmEntityContainer="Model1Container" >
+          <EntitySetMapping Name="FakturaNummer">
+            <EntityTypeMapping TypeName="Model1.FakturaNummer">
+              <MappingFragment StoreEntitySet="FakturaNummer">
+                <ScalarProperty Name="kontigent_id" ColumnName="kontigent_id" />
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+                <ScalarProperty Name="faktura_id" ColumnName="faktura_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kontigent">
+            <EntityTypeMapping TypeName="Model1.Kontigent">
+              <MappingFragment StoreEntitySet="Kontigent">
+                <ScalarProperty Name="kontigent_pris" ColumnName="kontigent_pris" />
+                <ScalarProperty Name="kontigent_id" ColumnName="kontigent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedlemKonto">
+            <EntityTypeMapping TypeName="Model1.MedlemKonto">
+              <MappingFragment StoreEntitySet="MedlemKonto">
+                <ScalarProperty Name="betalt" ColumnName="betalt" />
+                <ScalarProperty Name="medlems_mail" ColumnName="medlems_mail" />
+                <ScalarProperty Name="medlems_telefon" ColumnName="medlems_telefon" />
+                <ScalarProperty Name="zipcode_zipcode" ColumnName="zipcode_zipcode" />
+                <ScalarProperty Name="medlems_adress" ColumnName="medlems_adress" />
+                <ScalarProperty Name="medlems_foedselsdag" ColumnName="medlems_foedselsdag" />
+                <ScalarProperty Name="medlems_efternavn" ColumnName="medlems_efternavn" />
+                <ScalarProperty Name="medlems_fornavn" ColumnName="medlems_fornavn" />
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostNummer">
+            <EntityTypeMapping TypeName="Model1.PostNummer">
+              <MappingFragment StoreEntitySet="PostNummer">
+                <ScalarProperty Name="zipcode_city" ColumnName="zipcode_city" />
+                <ScalarProperty Name="zipcode_zipcode" ColumnName="zipcode_zipcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spBetalt" FunctionName="Store.spBetalt" />
+          <FunctionImportMapping FunctionImportName="spOpretMedlem" FunctionName="Store.spOpretMedlem" />
+          <FunctionImportMapping FunctionImportName="spRetMedlem" FunctionName="Store.spRetMedlem" />
+          <FunctionImportMapping FunctionImportName="spSletMedlem" FunctionName="Store.spSletMedlem" />
+          <FunctionImportMapping FunctionImportName="spSoegMedlem" FunctionName="Store.spSoegMedlem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model1.spSoegMedlem_Result">
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+                <ScalarProperty Name="medlems_fornavn" ColumnName="medlems_fornavn" />
+                <ScalarProperty Name="medlems_efternavn" ColumnName="medlems_efternavn" />
+                <ScalarProperty Name="medlems_foedselsdag" ColumnName="medlems_foedselsdag" />
+                <ScalarProperty Name="medlems_adress" ColumnName="medlems_adress" />
+                <ScalarProperty Name="zipcode_zipcode" ColumnName="zipcode_zipcode" />
+                <ScalarProperty Name="medlems_telefon" ColumnName="medlems_telefon" />
+                <ScalarProperty Name="medlems_mail" ColumnName="medlems_mail" />
+                <ScalarProperty Name="betalt" ColumnName="betalt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spViewBetalt" FunctionName="Store.spViewBetalt">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model1.spViewBetalt_Result">
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+                <ScalarProperty Name="medlems_fornavn" ColumnName="medlems_fornavn" />
+                <ScalarProperty Name="medlems_efternavn" ColumnName="medlems_efternavn" />
+                <ScalarProperty Name="medlems_foedselsdag" ColumnName="medlems_foedselsdag" />
+                <ScalarProperty Name="medlems_adress" ColumnName="medlems_adress" />
+                <ScalarProperty Name="zipcode_zipcode" ColumnName="zipcode_zipcode" />
+                <ScalarProperty Name="medlems_telefon" ColumnName="medlems_telefon" />
+                <ScalarProperty Name="medlems_mail" ColumnName="medlems_mail" />
+                <ScalarProperty Name="betalt" ColumnName="betalt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spViewFaktura" FunctionName="Store.spViewFaktura">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model1.spViewFaktura_Result">
+                <ScalarProperty Name="faktura_id" ColumnName="faktura_id" />
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+                <ScalarProperty Name="kontigent_id" ColumnName="kontigent_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spViewKonto" FunctionName="Store.spViewKonto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model1.spViewKonto_Result">
+                <ScalarProperty Name="medlems_id" ColumnName="medlems_id" />
+                <ScalarProperty Name="medlems_fornavn" ColumnName="medlems_fornavn" />
+                <ScalarProperty Name="medlems_efternavn" ColumnName="medlems_efternavn" />
+                <ScalarProperty Name="medlems_foedselsdag" ColumnName="medlems_foedselsdag" />
+                <ScalarProperty Name="medlems_adress" ColumnName="medlems_adress" />
+                <ScalarProperty Name="zipcode_zipcode" ColumnName="zipcode_zipcode" />
+                <ScalarProperty Name="medlems_telefon" ColumnName="medlems_telefon" />
+                <ScalarProperty Name="medlems_mail" ColumnName="medlems_mail" />
+                <ScalarProperty Name="betalt" ColumnName="betalt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
