@@ -124,7 +124,7 @@ namespace MoltrupMotionClassLibrary.DAL
 
             var sb = new StringBuilder();
 
-            sb.AppendLine("fornavn" + "," + "efternavn" + "," + "adress" + "," + "postnummer" + "," + "telefon" + "," + "foedselsdag" + "," + "mail");
+            sb.AppendLine("MedlemsID" +"," + "fornavn" + "," + "efternavn" + "," + "adress" + "," + "postnummer" + "," + "telefon" + "," + "foedselsdag" + "," + "mail");
             foreach (MoltrupMedlem mlm in mmdb.ExportMedlemmer())
             {
                 string betalt = "Ikke betalt";

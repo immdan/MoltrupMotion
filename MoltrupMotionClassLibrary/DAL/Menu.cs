@@ -14,7 +14,7 @@ namespace MoltrupMotionClassLibrary.DAL
             Console.WriteLine("A = Vis alle");
             Console.WriteLine("S = Søg medlem");
             Console.WriteLine("O = Opret medlem");
-            Console.WriteLine("R = Ret bruger");
+            Console.WriteLine("R = Ret medlem");
             Console.WriteLine("B = Betalt kontingent");
             Console.WriteLine("D = Slet medlem");
             Console.WriteLine("E = Exporter medlemmer til fil");
