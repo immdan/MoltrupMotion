@@ -173,7 +173,7 @@ namespace MoltrupMotionClassLibrary.DAL
 
         }
 
-
+        //Sætte betalt værdi for medlem
         public void Betalt(int medlemsID, bool betalt)
         {
             SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString);
@@ -201,6 +201,7 @@ namespace MoltrupMotionClassLibrary.DAL
             }
         }
 
+        //Slette medlem baseret på medlemsid
         public void Slet(int medlemsID)
         {
             SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString);
@@ -219,6 +220,8 @@ namespace MoltrupMotionClassLibrary.DAL
             }
         }
 
+
+        //Export af medlem som komma separeret fil
         public List<MoltrupMedlem> ExportMedlemmer()
         {
             List<MoltrupMedlem> myList = null;
@@ -272,7 +275,7 @@ namespace MoltrupMotionClassLibrary.DAL
         }
 
 
-
+        //Bulk import af medlemmer fra komma separeret fil
         public void ImportMedlemmer(DataTable imported_data)
         {
 

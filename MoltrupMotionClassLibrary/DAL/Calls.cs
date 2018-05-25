@@ -74,8 +74,23 @@ namespace MoltrupMotionClassLibrary.DAL
         {
             Console.WriteLine("Ændre medlem");
 
-            Console.WriteLine("Indtast medlemsid");
-            string medlemsid = Console.ReadLine();
+            int medlemsid = 0;
+
+            try
+            {
+                Console.WriteLine("Indtast medlemsid");
+                medlemsid = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Angiv en værdi");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Brug en talværdi til at angive medlemsID");
+                return;
+            }
+
             Console.WriteLine("Indtast fornavn");
             string fornavn = Console.ReadLine();
             Console.WriteLine("Indtast efternavn");
@@ -89,7 +104,7 @@ namespace MoltrupMotionClassLibrary.DAL
             Console.WriteLine("Indtast mail");
             string mail = Console.ReadLine();
 
-            mmdb.AendreMedlem(Convert.ToInt32(medlemsid), fornavn, efternavn, adresse, Convert.ToInt32(postnummer), Convert.ToInt32(telefonnummer), mail);
+            mmdb.AendreMedlem(medlemsid, fornavn, efternavn, adresse, Convert.ToInt32(postnummer), Convert.ToInt32(telefonnummer), mail);
             
         }
 
