@@ -142,9 +142,15 @@ namespace MoltrupMotionClassLibrary.DAL
 
         public void ImportBrugere()
         {
+            string filsti;
+
+            Console.WriteLine("Angiv sti til .CSV fil:");
+            Console.WriteLine("Første linje i .CSV filen skal være formateret således: fornavn,efternavn,adress,postnummer,telefon,foedselsdag,mail");
+            filsti = Console.ReadLine();
+
             CsvImport csvimport = new CsvImport();
 
-            mmdb.ImportMedlemmer(csvimport.GetDataFromFile());
+            mmdb.ImportMedlemmer(csvimport.GetDataFromFile(filsti));
         }
 
     }

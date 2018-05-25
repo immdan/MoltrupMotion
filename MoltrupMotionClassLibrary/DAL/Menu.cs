@@ -19,6 +19,10 @@ namespace MoltrupMotionClassLibrary.DAL
             Console.WriteLine("D = Slet medlem");
             Console.WriteLine("E = Exporter medlemmer til fil");
             Console.WriteLine("I = Import medlemmer fra fil");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("X = Afslut programmet");
 
         }
     }

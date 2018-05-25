@@ -15,12 +15,9 @@ namespace MoltrupMotionClassLibrary.DAL
     public class CsvImport
     { 
 
-       public DataTable GetDataFromFile()
+       public DataTable GetDataFromFile(string filsti)
         {
-            string filsti;
 
-            Console.WriteLine("Angiv sti til .CSV fil:");
-            filsti = Console.ReadLine();
 
             DataTable importedData = new DataTable();
 
