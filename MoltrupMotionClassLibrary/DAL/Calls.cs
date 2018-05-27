@@ -12,14 +12,6 @@ namespace MoltrupMotionClassLibrary.DAL
     {
         MedlemDB mmdb = new MedlemDB();
 
-        public MedlemDB MedlemDB
-        {
-            get => default(MedlemDB);
-            set
-            {
-            }
-        }
-
         public void OpretBruger()
         {
             Console.WriteLine("Opret medlem");
@@ -97,6 +89,10 @@ namespace MoltrupMotionClassLibrary.DAL
             {
                 Console.WriteLine("Brug en talværdi til at angive medlemsID");
                 return;
+            }
+            catch (Exception)
+            {
+                
             }
 
             Console.WriteLine("Indtast fornavn");

@@ -10,12 +10,9 @@
   <Class Name="MoltrupMotionClassLibrary.BO.MoltrupMedlem">
     <Position X="6.25" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>CAAAACAAAAIAACAAgAAAQACIAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAIAACAAgAAAQACIAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BO\MoltrupMedlem.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MedlemDB" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.BO.MoltrupPostnummer">
     <Position X="0.5" Y="2.5" Width="1.75" />
@@ -41,42 +38,30 @@
   <Class Name="MoltrupMotionClassLibrary.DAL.AppConfiguration">
     <Position X="10.25" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>DAL\AppConfiguration.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MedlemDB" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.Calls">
     <Position X="10" Y="6.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
+      <HashCode>AAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
       <FileName>DAL\Calls.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MedlemDB" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.CsvImport">
     <Position X="15" Y="4.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>CAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\CSVimport.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MedlemDB" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.MedlemDB">
     <Position X="10" Y="3.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAABAAAAAAAAQAAEgAgAAAAAAAAAAASAAgA=</HashCode>
+      <HashCode>AAgAAAAAAAABAAAAAAAAQAAEgAgAAAAAAAAAAACAAgA=</HashCode>
       <FileName>DAL\MedlemDB.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="MoltrupMedlem" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.Menu">
     <Position X="7.75" Y="8" Width="1.5" />

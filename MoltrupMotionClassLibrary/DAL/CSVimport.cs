@@ -12,15 +12,8 @@ using System.Threading.Tasks;
 
 namespace MoltrupMotionClassLibrary.DAL
 {
-    public class CsvImport : MedlemDB
+    public class CsvImport
     {
-        public MedlemDB MedlemDB
-        {
-            get => default(MedlemDB);
-            set
-            {
-            }
-        }
 
         public DataTable GetDataFromFile(string filsti)
         {

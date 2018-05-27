@@ -18,12 +18,5 @@ namespace MoltrupMotionClassLibrary.BO
         public string Medlems_mail { get; set; }
         public bool Betalt { get; set; }
 
-        public DAL.MedlemDB MedlemDB
-        {
-            get => default(DAL.MedlemDB);
-            set
-            {
-            }
-        }
     }
 }
