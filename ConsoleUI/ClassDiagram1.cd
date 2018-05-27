@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ConsoleUI.Model1Container" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAQAAAAkACBAAAAAAAAAAMCAAAAEAgQAAAIAAAAA=</HashCode>
+      <FileName>Model1.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.FakturaNummer" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAABgAAAAAAAAAAAAAAQAAAAAAAAE=</HashCode>
+      <FileName>FakturaNummer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.Kontigent" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAACAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Kontigent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.MedlemKonto" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIACACABCAAggAAAAACAAgAIAAAAAAAAAAAg=</HashCode>
+      <FileName>MedlemKonto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.PostNummer" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>PostNummer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.spSoegMedlem_Result" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIACAAABCAAggAAAAAAAAgAIAAAAAAAAAAAg=</HashCode>
+      <FileName>spSoegMedlem_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.spViewBetalt_Result" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIACAAABCAAggAAAAAAAAgAIAAAAAAAAAAAg=</HashCode>
+      <FileName>spViewBetalt_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.spViewFaktura_Result" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>spViewFaktura_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.spViewKonto_Result" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIACAAABCAAggAAAAAAAAgAIAAAAAAAAAAAg=</HashCode>
+      <FileName>spViewKonto_Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ConsoleUI.Program" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -12,6 +12,14 @@ namespace MoltrupMotionClassLibrary.DAL
     {
         MedlemDB mmdb = new MedlemDB();
 
+        public MedlemDB MedlemDB
+        {
+            get => default(MedlemDB);
+            set
+            {
+            }
+        }
+
         public void OpretBruger()
         {
             Console.WriteLine("Opret medlem");

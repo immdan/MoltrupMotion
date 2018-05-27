@@ -13,6 +13,14 @@ namespace MoltrupMotionClassLibrary.DAL
 {
     public class MedlemDB
     {
+        public MoltrupMedlem MoltrupMedlem
+        {
+            get => default(MoltrupMedlem);
+            set
+            {
+            }
+        }
+
         //Søg individuelt medlem
         public List<MoltrupMedlem> SoegMedlem(string Medlems_id)
         {

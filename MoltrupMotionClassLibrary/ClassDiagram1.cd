@@ -1,77 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="MoltrupMotionClassLibrary.BO.MoltrupFaktura">
-    <Position X="2.25" Y="5.25" Width="1.5" />
+    <Position X="3.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAQAAAAA=</HashCode>
       <FileName>BO\MoltrupFaktura.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.BO.MoltrupMedlem">
-    <Position X="6.25" Y="3.75" Width="1.5" />
+    <Position X="6.25" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAACAAAAIAACAAgAAAQACIAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAACAAAAIAACAAgAAAQACIAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BO\MoltrupMedlem.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MedlemDB" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.BO.MoltrupPostnummer">
-    <Position X="2.25" Y="3.75" Width="1.75" />
+    <Position X="0.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>BO\MoltrupPostnummer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.BO.Collections.MoltrupFakturaList">
-    <Position X="4.5" Y="2" Width="1.75" />
+    <Position X="0.5" Y="0.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BO\MoltrupFakturaList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.BO.Collections.MoltrupMedlemList">
-    <Position X="0.5" Y="2.5" Width="1.75" />
+    <Position X="2.75" Y="2.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BO\MoltrupMedlemList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.AppConfiguration">
-    <Position X="0.5" Y="0.5" Width="2" />
+    <Position X="10.25" Y="2" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
       <FileName>DAL\AppConfiguration.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MedlemDB" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.Calls">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="10" Y="6.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
+      <HashCode>CAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
       <FileName>DAL\Calls.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MedlemDB" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.CsvImport">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="15" Y="4.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>CAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\CSVimport.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MedlemDB" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.MedlemDB">
-    <Position X="6.5" Y="0.5" Width="1.5" />
+    <Position X="10" Y="3.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAABAAAAAAAAQAAEgAgAAAAAAAAAAACAAgA=</HashCode>
+      <HashCode>AAgAAAAAAAABAAAAAAAAQAAEgAgAAAAAAAAAAASAAgA=</HashCode>
       <FileName>DAL\MedlemDB.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MoltrupMedlem" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.Menu">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+    <Position X="7.75" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>DAL\Menu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.Properties.Resources">
-    <Position X="4.25" Y="3.75" Width="1.5" />
+    <Position X="0.5" Y="5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>

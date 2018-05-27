@@ -16,5 +16,13 @@ namespace MoltrupMotionClassLibrary.DAL
               return ConfigurationManager.ConnectionStrings["MoltrupMotionDB"].ConnectionString;
             }
         }
+
+        public static MedlemDB MedlemDB
+        {
+            get => default(MedlemDB);
+            set
+            {
+            }
+        }
     }
 }
