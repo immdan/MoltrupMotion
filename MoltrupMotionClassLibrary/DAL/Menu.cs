@@ -10,6 +10,7 @@ namespace MoltrupMotionClassLibrary.DAL
     {
         public static void Menuen()
         {
+            //En tekst fremstilling til en menu, som til at starte med "renser" skærmoutputtet.
             Console.Clear();
             Console.WriteLine("A = Vis alle");
             Console.WriteLine("S = Søg medlem");

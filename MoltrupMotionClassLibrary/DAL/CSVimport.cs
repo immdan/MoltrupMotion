@@ -26,9 +26,10 @@ namespace MoltrupMotionClassLibrary.DAL
                 using (StreamReader sr = new StreamReader(filsti))
                 {
 
-
+                    //Den øverste linje af .CSV filen læses for at definere emnerne.
                     string header = sr.ReadLine();
 
+                    //Der etableres et string array med emnerne
                     string[] headerColumns = header.Split(',');
                     foreach (string headerColumn in headerColumns)
                     {
@@ -39,7 +40,8 @@ namespace MoltrupMotionClassLibrary.DAL
 
                     while (!sr.EndOfStream)
                     {
-
+                        
+                        //Hver linje læses og trækkes ud af filen og tilføjes til en datarække.
                         string line = sr.ReadLine();
                         if (string.IsNullOrEmpty(line)) continue;
                         string[] fields = line.Split(',');
@@ -51,7 +53,7 @@ namespace MoltrupMotionClassLibrary.DAL
                             importedRow[i] = fields[i];
 
                         }
-
+                        
                         importedData.Rows.Add(importedRow);
                     }
                 }
@@ -60,7 +62,7 @@ namespace MoltrupMotionClassLibrary.DAL
             }
             catch (Exception e)
             {
-                Console.WriteLine("the file could not be read:");
+                Console.WriteLine("Filen kunne ikke læses:");
                 Console.WriteLine(e.Message);
             }
 

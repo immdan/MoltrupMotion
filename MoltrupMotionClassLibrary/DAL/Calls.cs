@@ -10,7 +10,10 @@ namespace MoltrupMotionClassLibrary.DAL
 {
     public class Calls
     {
+        //Instanciering af MedlemDB så det er muligt at foretage kald
+        //ned i klassen.
         MedlemDB mmdb = new MedlemDB();
+
 
         public void OpretBruger()
         {
@@ -43,8 +46,11 @@ namespace MoltrupMotionClassLibrary.DAL
             string soeg;
             soeg = Console.ReadLine();
 
+            //Gennemgang af alle medlemmerne i databasen
             foreach (MoltrupMedlem item in mmdb.SoegMedlem(soeg))
             {
+                //Gennemgang af alle betalt værdierne for at ændre output
+                //så det ikke bliver en bool værdi som står.
                 string betalt = "Ikke betalt";
                 if (item.Betalt == true)
                 {
@@ -61,6 +67,8 @@ namespace MoltrupMotionClassLibrary.DAL
 
             foreach (MoltrupMedlem cat in mmdb.SoegAlleMedlem())
             {
+                //Gennemgang af alle betalt værdierne for at ændre output
+                //så det ikke bliver en bool værdi som står.
                 string betalt = "Ikke Betalt";
                 if (cat.Betalt == true)
                 {
@@ -76,6 +84,8 @@ namespace MoltrupMotionClassLibrary.DAL
 
             int medlemsid = 0;
 
+            //Exception handling i forhold til medlemsid således at programmet
+            //kan håndtere at man indtaster en bogstavværdi og kan outpute en fejl til brugeren.
             try
             {
                 Console.WriteLine("Indtast medlemsid");
@@ -141,9 +151,13 @@ namespace MoltrupMotionClassLibrary.DAL
             Console.WriteLine("Angiv komplette filsti:");
             string filsti = Console.ReadLine();
 
+            //StringBuilder bliver instancieret for at muliggøre opbyggelse af strenge af tekst til CSV filen
             var sb = new StringBuilder();
 
+            //Den øverste linje skrives med emne værdier for hvad der derunder vil stå.
             sb.AppendLine("MedlemsID" +"," + "fornavn" + "," + "efternavn" + "," + "adress" + "," + "postnummer" + "," + "telefon" + "," + "foedselsdag" + "," + "mail");
+
+            //Hvert medlem løbes igennem og skrives på en ny linje i stringbuilderen.
             foreach (MoltrupMedlem mlm in mmdb.ExportMedlemmer())
             {
                 string betalt = "Ikke betalt";
@@ -155,6 +169,7 @@ namespace MoltrupMotionClassLibrary.DAL
                 sb.AppendLine(mlm.Medlems_id + "," + mlm.Medlems_fornavn + "," + mlm.Medlems_efternavn+ "," + mlm.Medlems_adress + "," + mlm.Zipcode_zipcode + "," + mlm.Medlems_telefon + "," + mlm.Medlems_foedselsdag + "," + mlm.Medlems_mail);
             }
 
+            //Filen skrives og placeres på den angivne filsti.
             System.IO.File.WriteAllText(filsti, sb.ToString());
 
         }

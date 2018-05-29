@@ -43,11 +43,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.Calls">
-    <Position X="10" Y="6.75" Width="2" />
+    <Position X="10.25" Y="7.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
+      <HashCode>CAAAAAAAAEAAIAAAAECAAAAAAAAgABAAAAAAAAAEAJA=</HashCode>
       <FileName>DAL\Calls.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MedlemDB" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="MoltrupMotionClassLibrary.DAL.CsvImport">
     <Position X="15" Y="4.5" Width="2.25" />

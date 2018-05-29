@@ -58,11 +58,11 @@ namespace ConsoleUI
                         break;
 
                     case 'i':
-                        calls.ImportBrugere();
-                        Console.ReadLine();
-                        break;
+                        calls.ImportBrugere(); Console.ReadLine(); break;
 
                 }
+
+
 
                 Menu.Menuen();
             } while (keyinfo.KeyChar != 'x');
