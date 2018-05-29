@@ -15,7 +15,7 @@ namespace MoltrupMotionClassLibrary.DAL
     {
 
         //Søg individuelt medlem
-        public List<MoltrupMedlem> SoegMedlem(string Medlems_id)
+        public List<MoltrupMedlem> SoegMedlem(string Soegevaerdi)
         {
             //Oprettelse af en liste til at indeholde dataen som bliver trukket ud af databasen.
             List<MoltrupMedlem> myList = null;
@@ -25,7 +25,7 @@ namespace MoltrupMotionClassLibrary.DAL
             SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString);
             SqlCommand myCommand = new SqlCommand("spSoegMedlem", myConnection);
             myCommand.CommandType = CommandType.StoredProcedure;
-            myCommand.Parameters.AddWithValue("@soegmedlem", Medlems_id);
+            myCommand.Parameters.AddWithValue("@soegmedlem", Soegevaerdi);
             try
             {
                 myConnection.Open();
