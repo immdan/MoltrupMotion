@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using MoltrupMotionClassLibrary.BO;
-using MoltrupMotionClassLibrary.BO.Collections;
 using System.IO;
 
 namespace MoltrupMotionClassLibrary.DAL

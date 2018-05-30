@@ -36,7 +36,7 @@ namespace MoltrupMotionClassLibrary.BLL
             string mail = Console.ReadLine();
 
             mmdb.OpretMedlem(fornavn, efternavn, foedselsdato, adresse, Convert.ToInt32(postnummer), Convert.ToInt32(telefonnummer), mail);
-
+            Console.WriteLine("{0} er oprettet", fornavn);
         }
 
 
@@ -120,7 +120,7 @@ namespace MoltrupMotionClassLibrary.BLL
             string mail = Console.ReadLine();
 
             mmdb.AendreMedlem(medlemsid, fornavn, efternavn, adresse, Convert.ToInt32(postnummer), Convert.ToInt32(telefonnummer), mail);
-            
+            Console.WriteLine("Bruger med ID {0} er ændret", medlemsid);
         }
 
 
@@ -133,7 +133,7 @@ namespace MoltrupMotionClassLibrary.BLL
             bool betalt = Convert.ToBoolean ( Console.ReadLine() );
 
             mmdb.Betalt(medlem, betalt);
-
+            Console.WriteLine("Bruger med ID {0} har fået sat betaling til {1}", medlem, betalt);
         }
 
         public void SletMedlem()
@@ -142,6 +142,7 @@ namespace MoltrupMotionClassLibrary.BLL
             int id = Convert.ToInt32(Console.ReadLine());
 
             mmdb.Slet(id);
+            Console.WriteLine("Bruger med ID {0} er slettet!", id);
         }
 
 
