@@ -75,7 +75,7 @@
     <Compile Include="BO\MoltrupMedlemList.cs" />
     <Compile Include="BO\MoltrupPostnummer.cs" />
     <Compile Include="DAL\AppConfiguration.cs" />
-    <Compile Include="DAL\Calls.cs" />
+    <Compile Include="BLL\Calls.cs" />
     <Compile Include="DAL\CSVimport.cs" />
     <Compile Include="DAL\MedlemDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,9 +88,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,9 +96,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>

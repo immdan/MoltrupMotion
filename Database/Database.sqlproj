@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{7201076a-ed16-41d1-ba7e-32c71bc2bcf9}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -76,5 +76,8 @@
     <Build Include="dbo\Stored Procedures\spBetalt.sql" />
     <Build Include="dbo\Stored Procedures\spViewBetalt.sql" />
     <Build Include="dbo\Stored Procedures\spSletMedlem.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StaticCodeAnalysis.SuppressMessages.xml" />
   </ItemGroup>
 </Project>

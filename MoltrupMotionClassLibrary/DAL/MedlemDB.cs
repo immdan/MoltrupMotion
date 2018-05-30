@@ -130,7 +130,7 @@ namespace MoltrupMotionClassLibrary.DAL
         }
 
         //Opret Bruger
-        public string OpretMedlem(string fornavn, string efternavn, string foedselsdag, string addresse, int postnummer, int telefonnummer, string mail)
+        public void OpretMedlem(string fornavn, string efternavn, string foedselsdag, string addresse, int postnummer, int telefonnummer, string mail)
         {
             SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString);
             SqlCommand myCommand = new SqlCommand("spOpretMedlem", myConnection);
@@ -151,11 +151,11 @@ namespace MoltrupMotionClassLibrary.DAL
             {
                 myConnection.Close();
             }
-            return "Bruger er oprettet";
+            
         }
 
         //Ændre bruger
-        public string AendreMedlem(int medlemsId, string fornavn, string efternavn, string addresse, int postnummer, int telefonnummer, string mail)
+        public void AendreMedlem(int medlemsId, string fornavn, string efternavn, string addresse, int postnummer, int telefonnummer, string mail)
         {
             SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString);
             SqlCommand myCommand = new SqlCommand("spRetMedlem", myConnection);
@@ -176,9 +176,7 @@ namespace MoltrupMotionClassLibrary.DAL
             {
                 myConnection.Close();
             }
-            string finish = "Bruger er ændret";
-            return finish;
-
+            
         }
 
         //Sætte betalt værdi for medlem
@@ -313,7 +311,7 @@ namespace MoltrupMotionClassLibrary.DAL
 
             }
 
-
+            
         }
     }
 }

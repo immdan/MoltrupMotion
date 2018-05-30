@@ -14,7 +14,6 @@ namespace MoltrupMotionClassLibrary.DAL
 {
     public class CsvImport
     {
-
         public DataTable GetDataFromFile(string filsti)
         {
 

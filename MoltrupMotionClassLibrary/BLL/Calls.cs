@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MoltrupMotionClassLibrary.BO;
+using MoltrupMotionClassLibrary.DAL;
 
 
-namespace MoltrupMotionClassLibrary.DAL
+namespace MoltrupMotionClassLibrary.BLL
 {
     public class Calls
     {
@@ -171,6 +172,7 @@ namespace MoltrupMotionClassLibrary.DAL
 
             //Filen skrives og placeres på den angivne filsti.
             System.IO.File.WriteAllText(filsti, sb.ToString());
+            Console.WriteLine("Medlemmer er eksporteret.");
 
         }
 
@@ -185,6 +187,8 @@ namespace MoltrupMotionClassLibrary.DAL
             CsvImport csvimport = new CsvImport();
 
             mmdb.ImportMedlemmer(csvimport.GetDataFromFile(filsti));
+
+            Console.WriteLine("Medlemmer importeret");
         }
 
     }

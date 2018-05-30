@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StaticCodeAnalysis version="2" xmlns="urn:Microsoft.Data.Tools.Schema.StaticCodeAnalysis">
+  <SuppressedFile FilePath="dbo\Stored Procedures\spSoegMedlem.sql">
+    <SuppressedRule Category="Microsoft.Rules.Data" RuleId="SR0001" />
+  </SuppressedFile>
+  <SuppressedFile FilePath="dbo\Stored Procedures\spViewBetalt.sql">
+    <SuppressedRule Category="Microsoft.Rules.Data" RuleId="SR0001" />
+  </SuppressedFile>
+  <SuppressedFile FilePath="dbo\Stored Procedures\spViewFaktura.sql">
+    <SuppressedRule Category="Microsoft.Rules.Data" RuleId="SR0001" />
+  </SuppressedFile>
+  <SuppressedFile FilePath="dbo\Stored Procedures\spViewKonto.sql">
+    <SuppressedRule Category="Microsoft.Rules.Data" RuleId="SR0001" />
+  </SuppressedFile>
+</StaticCodeAnalysis>
