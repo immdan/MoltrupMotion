@@ -42,7 +42,6 @@ namespace MoltrupMotionClassLibrary.DAL
                         myMedlem.Medlems_foedselsdag = myReader["Medlems_foedselsdag"].ToString();
                         myMedlem.Medlems_adress = myReader["Medlems_adress"].ToString();
                         myMedlem.Zipcode_zipcode = Convert.ToInt32(myReader["zipcode_zipcode"]);
-                        myMedlem.Medlems_telefon = Convert.ToInt32(myReader["Medlems_telefon"]);
                         myMedlem.Medlems_mail = myReader["Medlems_mail"].ToString();                   
 
                         string telefonnummer;
